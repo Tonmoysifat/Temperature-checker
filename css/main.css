@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, serif;
+  text-align: center;
+  color: #343a40;
+  font-size: 22px;
+  background-color: #00bda5;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-top: 40px;
+  font-size: 48px;
+}
+
+.highFive {
+  margin-top: 50px;
+}
+
+button {
+  margin-top: 40px;
+}
+.catPicB {
+  margin-top: 10px;
+}
+
+.page-header {
+  /* background-color: #00bda5; */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+#image img {
+  height: 200px;
+  margin-top: 60px;
+}
+
+.element {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.element p {
+  font-size: 40px;
+}
+
+input#exampleInputEmail1::placeholder {
+  font-size: 17px;
+  padding: 5px;
+}
+
+.temp {
+  font-size: 35px;
+  text-align: left;
+}
+.error-message {
+  text-align: left;
+}
+
+#lo {
+  position: absolute;
+  right: 35px;
+  top: 0;
+}
