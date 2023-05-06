@@ -40,7 +40,7 @@ button {
 }
 
 .element {
-  height: 300px;
+  /* height: 300px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +57,7 @@ input#exampleInputEmail1::placeholder {
 
 .temp {
   font-size: 35px;
-  text-align: left;
+  text-align: center;
 }
 .error-message {
   text-align: left;
@@ -67,4 +67,14 @@ input#exampleInputEmail1::placeholder {
   position: absolute;
   right: 35px;
   top: 0;
+}
+
+@media screen and (max-width:767px){
+  .element p {
+    font-size: 24px;
+  }
+}
+
+.showingcat {
+  margin-top: 100px
 }
