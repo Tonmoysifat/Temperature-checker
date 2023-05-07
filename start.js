@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-const webpack = require('webpack');
+
 
 app.set('port', (process.env.PORT || 5004));
 
@@ -22,14 +22,6 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-module.exports = {
-  // your webpack configuration
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
-    }),
-  ],
-};
 
 // This file is what handles incoming requests and
 // serves files to the browser, or executes server-side code
