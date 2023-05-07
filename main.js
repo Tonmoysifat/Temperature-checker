@@ -15,18 +15,14 @@ function getWeather(searchQuery) {
   }
 
 
-  // var url =
-  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
-  //   searchQuery +
-  //   "&appid=" +
-  //   apiKey +
-  //   "&units=metric";
+  var url =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    searchQuery +
+    "&appid=26ddbaac9e6c359a53b14b7a202b5011&units=metric";
 
   // var url = "/.netlify/functions/weather.js";
 
-  var url =
-    "/.netlify/functions/weather?searchQuery=" + encodeURIComponent(searchQuery);
-
+ 
   $.ajax(url, {
     
     success: function (data) {
