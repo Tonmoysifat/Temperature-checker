@@ -14,19 +14,24 @@ function getWeather(searchQuery) {
     return;
   }
 
-  
-  // var apiKey = process.env.API_KEY;
+  // var apiKey = "<%= process.env.API_KEY %>";
   // var apiKey = window.API_KEY;
-  var apiKey = config.apiKey;
+  // var apiKey = config.apiKey;
+
+  // var url =
+  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
+  //   searchQuery +
+  //   "&appid=" +
+  //   apiKey +
+  //   "&units=metric";
+
+  // var url = "/.netlify/functions/weather.js";
 
   var url =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchQuery +
-    "&appid=" +
-    apiKey +
-    "&units=metric";
+    "/.netlify/functions/weather?searchQuery=" + encodeURIComponent(searchQuery);
 
   $.ajax(url, {
+    
     success: function (data) {
       console.log(data);
 
