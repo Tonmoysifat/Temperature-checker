@@ -42,8 +42,25 @@ function exampleFunction() {
 
 
  
-  $.ajax(url, {
+  // $.ajax(url, {
     
+  //   success: function (data) {
+  //     console.log(data);
+
+  //     $(".temp").text(data.main.temp + "°C");
+  //     $(".error-message").text("");
+  //   },
+  //   error: function (error) {
+  //     $(".error-message").text("Can't find the city");
+  //     $(".city").text("");
+  //     $(".temp").text("");
+  //   },
+  // });
+  $.ajax( {
+    url: url,
+  method: "GET",
+  dataType: "json",
+  data: {},
     success: function (data) {
       console.log(data);
 
