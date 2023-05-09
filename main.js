@@ -36,14 +36,10 @@ function exampleFunction() {
   // Rest of your code
 }
 
-  // var url =
-  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
-  //   searchQuery +
-  //   "&appid=26ddbaac9e6c359a53b14b7a202b5011&units=metric";
 
-  var url =`https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apikey}units=metric`;
+  var url =`https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apiKey}units=metric`;
 
-  // var url = "/.netlify/functions/weather.js";
+
 
  
   $.ajax(url, {
