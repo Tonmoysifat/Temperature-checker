@@ -3,7 +3,7 @@ catPicB.addEventListener("click", () => {
 $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
   $(".highFive").html("High five! You're building your first web app!");
 });
-// require('dotenv').config()
+
 
 $(document).ready(function () {
   getWeather();
