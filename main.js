@@ -3,6 +3,7 @@ catPicB.addEventListener("click", () => {
 $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
   $(".highFive").html("High five! You're building your first web app!");
 });
+// require('dotenv').config()
 
 $(document).ready(function () {
   getWeather();
@@ -15,10 +16,32 @@ function getWeather(searchQuery) {
   }
 
 
-  var url =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchQuery +
-    "&appid=26ddbaac9e6c359a53b14b7a202b5011&units=metric";
+let apiKey;
+
+// Fetch the API key from the serverless function
+fetch('/.netlify/functions/api-key')
+  .then((response) => response.json())
+  .then((data) => {
+    apiKey = data.apiKey;
+    // Call any function that relies on the API key
+    exampleFunction();
+  })
+  .catch((error) => {
+    console.error('Error fetching API key:', error);
+  });
+
+function exampleFunction() {
+  // Use the apiKey variable in your code
+  console.log(apiKey);
+  // Rest of your code
+}
+
+  // var url =
+  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
+  //   searchQuery +
+  //   "&appid=26ddbaac9e6c359a53b14b7a202b5011&units=metric";
+
+  var url =`https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apikey}units=metric`;
 
   // var url = "/.netlify/functions/weather.js";
 

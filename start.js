@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+require('dotenv').config()
+// console.log(process.env)
 
 
 app.set('port', (process.env.PORT || 5004));
