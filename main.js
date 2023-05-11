@@ -1,13 +1,12 @@
 let catPicB = document.querySelector(".catPicB");
 catPicB.addEventListener("click", () => {
-$("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
+  $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
   $(".highFive").html("High five! You're building your first web app!");
 });
 // const jh=function cliced() {
 //   $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
 //   $(".highFive").html("High five! You're building your first web app!");
 // }
-
 
 $(document).ready(function () {
   getWeather();
@@ -19,68 +18,88 @@ function getWeather(searchQuery) {
     return;
   }
 
+  let apiKey;
 
-let apiKey;
+  // Fetch the API key from the serverless function
+  fetch("/.netlify/functions/api-key")
+    .then((response) => response.json())
+    .then((data) => {
+      apiKey = data.apiKey;
+      // Call any function that relies on the API key
+      var url = `https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apiKey}units=metric`;
+      $.ajax(url, {
+        success: function (data) {
+          console.log(data);
 
-// Fetch the API key from the serverless function
-fetch('/.netlify/functions/api-key')
-  .then((response) => response.json())
-  .then((data) => {
-    apiKey = data.apiKey;
-    // Call any function that relies on the API key
-    exampleFunction();
-  })
-  .catch((error) => {
-    console.error('Error fetching API key:', error);
-  });
+          $(".temp").text(data.main.temp + "°C");
+          $(".error-message").text("");
+        },
+        error: function (error) {
+          $(".error-message").text("Can't find the city");
+          $(".city").text("");
+          $(".temp").text("");
+        },
+      });
 
-function exampleFunction() {
-  // Use the apiKey variable in your code
-  console.log(apiKey);
-  // Rest of your code
+      exampleFunction(url);
+    })
+    .catch((error) => {
+      console.error("Error fetching API key:", error);
+    });
+
+  function exampleFunction(url) {
+    // Use the apiKey variable in your code
+    console.log(apiKey);
+
+    // Rest of your code
+
+    let weatherBtn = document.getElementById("weatherBtn");
+    weatherBtn.addEventListener("click", () => {
+      var searchQuery = $(".search").val();
+      getWeather(searchQuery);
+    });
+  }
 }
 
+// var url =`https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apiKey}units=metric`;
 
-  var url =`https://api.openweathermap.org/data/2.5/weather?q= ${searchQuery} +&appid=${apiKey}units=metric`;
+//   $.ajax(url, {
 
+//     success: function (data) {
+//       console.log(data);
 
+//       $(".temp").text(data.main.temp + "°C");
+//       $(".error-message").text("");
+//     },
+//     error: function (error) {
+//       $(".error-message").text("Can't find the city");
+//       $(".city").text("");
+//       $(".temp").text("");
+//     },
+//   });
+// }
 
- 
-  // $.ajax(url, {
-    
-  //   success: function (data) {
-  //     console.log(data);
+// $.ajax( {
+//   url: url,
+// method: "GET",
+// dataType: "json",
+// data: {},
+//   success: function (data) {
+//     console.log(data);
 
-  //     $(".temp").text(data.main.temp + "°C");
-  //     $(".error-message").text("");
-  //   },
-  //   error: function (error) {
-  //     $(".error-message").text("Can't find the city");
-  //     $(".city").text("");
-  //     $(".temp").text("");
-  //   },
-  // });
-  $.ajax( {
-    url: url,
-  method: "GET",
-  dataType: "json",
-  data: {},
-    success: function (data) {
-      console.log(data);
+//     $(".temp").text(data.main.temp + "°C");
+//     $(".error-message").text("");
+//   },
+//   error: function (error) {
+//     $(".error-message").text("Can't find the city");
+//     $(".city").text("");
+//     $(".temp").text("");
+//   },
+// });
+// }
 
-      $(".temp").text(data.main.temp + "°C");
-      $(".error-message").text("");
-    },
-    error: function (error) {
-      $(".error-message").text("Can't find the city");
-      $(".city").text("");
-      $(".temp").text("");
-    },
-  });
-}
-
-let weatherBtn = document.getElementById("weatherBtn");
-weatherBtn.addEventListener("click", () => {
-  var searchQuery = $(".search").val();
-  getWeather(searchQuery);
-});
+// let weatherBtn = document.getElementById("weatherBtn");
+// weatherBtn.addEventListener("click", () => {
+// var searchQuery = $(".search").val();
+// getWeather(searchQuery);
+// });
