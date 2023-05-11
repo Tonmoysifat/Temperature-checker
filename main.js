@@ -3,6 +3,10 @@ catPicB.addEventListener("click", () => {
 $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
   $(".highFive").html("High five! You're building your first web app!");
 });
+// const jh=function cliced() {
+//   $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
+//   $(".highFive").html("High five! You're building your first web app!");
+// }
 
 
 $(document).ready(function () {
