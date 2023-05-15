@@ -27,10 +27,10 @@ button {
 .page-header {
   /* background-color: #00bda5; */
   color: #ffffff;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   margin-top: 100px;
 }
 
@@ -40,11 +40,11 @@ button {
 }
 
 .element {
-  /* height: 300px; */
-  display: flex;
+  height: 260px;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 .element p {
   font-size: 40px;
@@ -60,7 +60,7 @@ input#exampleInputEmail1::placeholder {
   text-align: center;
 }
 .error-message {
-  text-align: left;
+  text-align: center;
 }
 
 #lo {
@@ -76,5 +76,5 @@ input#exampleInputEmail1::placeholder {
 }
 
 .showingcat {
-  margin-top: 100px
+  /* margin-top: 50px */
 }
