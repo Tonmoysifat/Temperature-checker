@@ -64,14 +64,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const database = getDatabase(app);
-
-// import {
-//   initializeAuth,
-//   getAuth,
-//   signInWithRedirect,
-//   GoogleAuthProvider,
-// } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-
 let lo = document.getElementById("lo");
 lo.addEventListener("click", () => {
   const provider = new GoogleAuthProvider();
