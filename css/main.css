@@ -32,6 +32,11 @@ button {
   justify-content: center;
   align-items: center; */
   margin-top: 100px;
+  
+}
+.forcnt{
+  width: 50%;
+  margin: auto;
 }
 
 #image img {
@@ -77,4 +82,8 @@ input#exampleInputEmail1::placeholder {
 
 .showingcat {
   /* margin-top: 50px */
+}
+
+.form-control{
+  border-radius: 0;
 }

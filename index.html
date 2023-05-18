@@ -52,15 +52,62 @@
     <div class="showingcat">
       <p>Click on the button for a surprise.</p>
 
-      <button class="btn btn-dark catPicB" >Click me</button>
+      <button class="btn btn-dark catPicB">Click me</button>
 
       <div id="image"></div>
     </div>
-  </div> 
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script> 
+    crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script type="module" src="main.js"></script>
+
+  <script>
+
+    let catPicB = document.querySelector(".catPicB");
+    catPicB.addEventListener("click", () => {
+      $("#image").append('<img class="rounded-circle" src="images/high-five.gif">');
+      $(".highFive").html("High five! You're building your first web app!");
+    });
+
+
+    $(document).ready(function () {
+      getWeather();
+    });
+
+    function getWeather(searchQuery) {
+      if (searchQuery === "" || searchQuery === undefined) {
+        $(".error-message").text("");
+        return;
+      }
+
+      var url =
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+        searchQuery +
+        "&appid=26ddbaac9e6c359a53b14b7a202b5011&units=metric";
+
+      $.ajax(url, {
+        success: function (data) {
+          console.log(data);
+          $(".temp").text(data.main.temp + "°C");
+          $(".error-message").text("");
+        },
+        error: function (error) {
+          $(".error-message").text("Can't find the city");
+          $(".city").text("");
+          $(".temp").text("");
+        },
+      });
+    }
+
+    let weatherBtn = document.getElementById("weatherBtn");
+    weatherBtn.addEventListener("click", () => {
+      var searchQuery = $(".search").val();
+      getWeather(searchQuery);
+    });
+
+  </script>
 </body>
+
 </html>
