@@ -82,6 +82,8 @@
       set,
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 
+
+
     function addMessage(postEmail, postMessage) {
       var postData = {
         email: postEmail,
@@ -98,14 +100,18 @@
     };
 
     let form = document.querySelector(".form");
-    form.addEventListener("submit", () => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
       var postEmail = $("#post-email").val();
       var postMessage = $("#post-message").val();
       console.log(postEmail + " " + postMessage);
       addMessage(postEmail, postMessage);
     });
 
+
+
   </script>
+
 </body>
 
 </html>
